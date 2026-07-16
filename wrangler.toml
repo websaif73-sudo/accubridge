@@ -1,0 +1,10 @@
+name = "accubridge"
+main = ".output/server/index.mjs"
+compatibility_date = "2026-07-12"
+compatibility_flags = ["nodejs_compat"]
+
+[assets]
+directory = ".output/public"
+
+[observability]
+enabled = true

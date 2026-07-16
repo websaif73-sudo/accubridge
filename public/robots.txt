@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /auth
+Disallow: /admin
+
+Sitemap: https://accurbidge-grand-opus.lovable.app/sitemap.xml

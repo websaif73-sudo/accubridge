@@ -1,0 +1,1 @@
+UPDATE public.brand_settings SET email = 'management@accubridge.tech' WHERE email IN ('hello@accubridge.com', 'hello@accubridge.pk');

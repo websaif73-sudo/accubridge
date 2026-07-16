@@ -1,0 +1,28 @@
+## Netlify deployment config for AccuBridge (TanStack Start + Nitro)
+##
+## This project uses TanStack Start (SSR via Nitro). The Lovable Vite preset
+## defaults Nitro's build target to Cloudflare Workers. For Netlify we
+## switch Nitro to the `netlify` preset via the NITRO_PRESET env var so it
+## emits Netlify Functions + static assets automatically.
+##
+## Required environment variables to set in Netlify UI
+## (Site settings → Environment variables):
+##   VITE_SUPABASE_URL
+##   VITE_SUPABASE_PUBLISHABLE_KEY
+##   VITE_SUPABASE_PROJECT_ID
+
+[build]
+  command = "bun run build"
+  publish = "dist"
+
+[build.environment]
+  NITRO_PRESET = "netlify"
+  NODE_VERSION = "20"
+
+## SPA/route fallback — TanStack Router handles client-side routing.
+## Netlify's Nitro preset wires SSR functions automatically; this catch-all
+## is only used if a route isn't matched by the function handler.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
